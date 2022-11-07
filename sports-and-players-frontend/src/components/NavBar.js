@@ -35,6 +35,16 @@ const linkStyles = {
           Sports
         </NavLink>
         <NavLink
+          to="/sports/new"
+          exact
+          style={linkStyles}
+          activeStyle={{
+            background: "darkgrey",
+          }}
+        >
+          Add Sport
+        </NavLink>
+        <NavLink
           to="/players"
           exact
           style={linkStyles}
@@ -42,7 +52,17 @@ const linkStyles = {
             background: "darkgrey",
           }}
         >
-          Players
+          Athletes
+        </NavLink>
+        <NavLink
+          to="/players/new"
+          exact
+          style={linkStyles}
+          activeStyle={{
+            background: "darkgrey",
+          }}
+        >
+          Add Athlete
         </NavLink>
       </div>
     )
