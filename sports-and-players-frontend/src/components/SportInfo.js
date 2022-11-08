@@ -3,7 +3,7 @@ function SportInfo({ sport }) {
         <div>
             <h2>{sport.name}</h2>
             <div>
-                <p>Number of Athletes: { sport.player.length }</p>
+                <p>Number of Athletes: { sport.players.length }</p>
             </div>
         </div>
     )
