@@ -1,11 +1,9 @@
 function Sport({ sports }) {
-
-    const sportsList = sports.map((sport) => <h2 key={sport.id}>{sport.name}</h2> )
+    console.log(sports)
 
     return (
         <div>
-            <h3>Sport List</h3>
-            {sportsList}
+            <h2>List of Sports</h2>
         </div>
     )
 }
