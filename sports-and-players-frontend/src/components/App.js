@@ -16,10 +16,14 @@ function App() {
     fetch("http://localhost:9292/sports")
     .then((r) => r.json())
     .then((data) => setSports(data))
-  }, [ sports ])
+  }, [])
 
   function addSport(newSport) {
     setSports( [...sports, newSport ])
+  }
+
+  function deleteSport(clickedSport) {
+    setSports([...sports].filter((sport) => sport.id !== clickedSport.id))
   }
 
   return (
@@ -27,7 +31,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/sports' element={<Sport sports={ sports }/>} />
+        <Route path='/sports' element={<Sport sports={ sports } deleteSport={deleteSport}/>} />
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player/>} />
         <Route path='/players/new' element={<PlayerForm/>} />
