@@ -12,12 +12,18 @@ function App() {
   const [sports, setSports] = useState([]);
   const [athtetes, setAthletes] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/sports")
+    .then((r) => r.json())
+    .then((data) => setSports(data))
+  }, [])
+
   return (
     <div>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/sports' element={<Sport/>} />
+        <Route path='/sports' element={<Sport sports={ sports }/>} />
         <Route path='/sports/new' element={<SportForm/>} />
         <Route path='/players' element={<Player/>} />
         <Route path='/players/new' element={<PlayerForm/>} />
