@@ -16,7 +16,11 @@ function App() {
     fetch("http://localhost:9292/sports")
     .then((r) => r.json())
     .then((data) => setSports(data))
-  }, [])
+  }, [ sports ])
+
+  function addSport(newSport) {
+    setSports( [...sports, newSport ])
+  }
 
   return (
     <div>
@@ -24,7 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/sports' element={<Sport sports={ sports }/>} />
-        <Route path='/sports/new' element={<SportForm/>} />
+        <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player/>} />
         <Route path='/players/new' element={<PlayerForm/>} />
       </Routes>
