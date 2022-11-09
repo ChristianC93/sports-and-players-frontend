@@ -7,7 +7,7 @@ function Player({ sports }) {
             <h2>List of Athletes</h2>
             {sports.map((sport) => {
                 return (
-                    <PlayerInfo key={sport.id} sport={sport} />
+                    <PlayerInfo key={sport.id} players={sport.players} />
                 )
             })}
         </div>

@@ -6,6 +6,7 @@ import Sport from './Sport';
 import Player from './Player';
 import SportForm from './SportForm';
 import PlayerForm from './PlayerForm';
+import EditPlayer from './EditPlayer';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player sports={ sports } />} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
+        <Route path='/players/:id/edit' element={<EditPlayer/>} />
       </Routes>
     </div>
   );
