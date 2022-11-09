@@ -10,7 +10,6 @@ import PlayerForm from './PlayerForm';
 
 function App() {
   const [sports, setSports] = useState([]);
-  const [athtetes, setAthletes] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/sports")
@@ -18,8 +17,10 @@ function App() {
     .then((data) => setSports(data))
   }, [])
 
+  // console.log(sports)
+
   function addSport(newSport) {
-    setSports( [...sports, newSport ])
+    setSports( [...sports, newSport ] )
   }
 
   function deleteSport(clickedSport) {
@@ -31,10 +32,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/sports' element={<Sport sports={ sports } deleteSport={deleteSport}/>} />
+        <Route path='/sports' element={<Sport sports={ sports } deleteSport={ deleteSport }/>} />
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
-        <Route path='/players' element={<Player/>} />
-        <Route path='/players/new' element={<PlayerForm/>} />
+        <Route path='/players' element={<Player sports={ sports } />} />
+        <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
       </Routes>
     </div>
   );
