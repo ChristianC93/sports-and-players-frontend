@@ -18,7 +18,7 @@ const linkStyles = {
           to="/"
           exact
           style={linkStyles}
-          activeStyle={{
+          activestyle={{
             background: "darkgrey",
           }}
         >
@@ -28,7 +28,7 @@ const linkStyles = {
           to="/sports"
           exact
           style={linkStyles}
-          activeStyle={{
+          activestyle={{
             background: "darkgrey",
           }}
         >
@@ -38,7 +38,7 @@ const linkStyles = {
           to="/sports/new"
           exact
           style={linkStyles}
-          activeStyle={{
+          activestyle={{
             background: "darkgrey",
           }}
         >
@@ -48,7 +48,7 @@ const linkStyles = {
           to="/players"
           exact
           style={linkStyles}
-          activeStyle={{
+          activestyle={{
             background: "darkgrey",
           }}
         >
@@ -58,7 +58,7 @@ const linkStyles = {
           to="/players/new"
           exact
           style={linkStyles}
-          activeStyle={{
+          activestyle={{
             background: "darkgrey",
           }}
         >

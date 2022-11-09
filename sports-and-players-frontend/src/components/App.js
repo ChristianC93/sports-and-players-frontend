@@ -37,7 +37,7 @@ function App() {
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player sports={ sports } />} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
-        <Route path='/players/:id/edit' element={<EditPlayer/>} />
+        <Route path='/players/:id/edit' element={<EditPlayer sports={ sports }/>} />
       </Routes>
     </div>
   );

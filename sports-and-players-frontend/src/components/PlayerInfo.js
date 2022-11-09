@@ -4,10 +4,10 @@ function PlayerInfo({ players }) {
     const playerInfo = players.map(( player ) => {
         return (
             <div>
-                <h4>{ player.name }</h4>
+                <h4 key={ player.name }>{ player.name }</h4>
                 <p>Age: { player.age }</p>
                 <p>{ player.active ? "Active" : "Retired" }</p>
-                <p><Link to={`http://localhost:9292/players/${ player.id }/edit`}>Edit</Link></p> <button>Delete</button>
+                <p><Link to={`/players/${ player.id }/edit`}>Edit</Link></p> <button>Delete</button>
             </div>
         )
     })
