@@ -1,11 +1,10 @@
 function PlayerInfo({ players }) {
-    console.log(players)
     const playerInfo = players.map(( player ) => {
         return (
-            <div>
+            <div key={ player.name }>
                 <h4 key={ player.name }>{ player.name }</h4>
-                <p>Age: { player.age }</p>
-                <p>{ player.active ? "Active" : "Retired" }</p>
+                <p key={ player.age }>Age: { player.age }</p>
+                <p key={ player.active }>{ player.active ? "Active" : "Retired" }</p>
             </div>
         )
     })
