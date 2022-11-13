@@ -12,7 +12,7 @@ function SportInfo({ sport, deleteSport }) {
             <div>
                 <p>Number of Athletes: { sport.players.length }</p>
             </div>
-            <button onClick={handleDeleteClick}>Delete</button>
+            <button onClick={ handleDeleteClick }>Delete</button>
         </div>
     )
 }

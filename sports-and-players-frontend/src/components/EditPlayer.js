@@ -9,7 +9,7 @@ function EditPlayer({ sports, onEditSubmit }) {
     const [player, setPlayer] = useState({
         name:"",
         age:"",
-        sport_id:"",
+        sport_id: 0,
         active:""
     });
 
@@ -40,7 +40,7 @@ function EditPlayer({ sports, onEditSubmit }) {
                 <label> Age:</label><br></br>
                 <input type="text"  name="age" size="10" value={ player.age } onChange={ handleChange }></input><br></br>
                 <label> Sport:</label><br></br>
-                <select value={ player.sport_id } onChange={ handleChange }>
+                <select value={ player.sport_id } name="sport_id" onChange={ handleChange }>
                     {sportsOptions}
                 </select><br></br>
                 <label>Active?:</label><br></br>
