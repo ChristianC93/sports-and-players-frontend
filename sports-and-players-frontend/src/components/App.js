@@ -6,7 +6,7 @@ import Sport from './Sport';
 import Player from './Player';
 import SportForm from './SportForm';
 import PlayerForm from './PlayerForm';
-import EditPlayer from './EditPlayer';
+import EditSport from './EditSport';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     fetch("http://localhost:9292/sports")
     .then((r) => r.json())
     .then((data) => setSports(data))
-  }, [])
+  }, [sports])
 
   // console.log(sports)
 
@@ -28,13 +28,14 @@ function App() {
     setSports( [...sports].filter((sport) => sport.id !== clickedSport.id))
   }
 
-  function onEditSubmit(editedPlayer) {
-    fetch(`http://localhost:9292/players/${editedPlayer.id}`, {
+
+  function onEditSubmit(editedSport) {
+    fetch(`http://localhost:9292/sports/${editedSport.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(editedPlayer) 
+      body: JSON.stringify(editedSport) 
     })
     .then((r) => r.json())
     .then((data) => console.log(data))
@@ -49,7 +50,7 @@ function App() {
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player sports={ sports } />} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
-        <Route path='/players/:id/edit' element={<EditPlayer sports={ sports } onEditSubmit={ onEditSubmit }/>} />
+        <Route path='/sports/:id/edit' element={<EditSport sports={ sports } onEditSubmit={ onEditSubmit }/>} />
       </Routes>
     </div>
   );
