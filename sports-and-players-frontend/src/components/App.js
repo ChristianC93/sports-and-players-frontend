@@ -25,7 +25,19 @@ function App() {
   }
 
   function deleteSport(clickedSport) {
-    setSports([...sports].filter((sport) => sport.id !== clickedSport.id))
+    setSports( [...sports].filter((sport) => sport.id !== clickedSport.id))
+  }
+
+  function onEditSubmit(editedPlayer) {
+    fetch(`http://localhost:9292/players/${editedPlayer.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedPlayer) 
+    })
+    .then((r) => r.json())
+    .then((data) => console.log(data))
   }
 
   return (
@@ -37,7 +49,7 @@ function App() {
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
         <Route path='/players' element={<Player sports={ sports } />} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
-        <Route path='/players/:id/edit' element={<EditPlayer sports={ sports }/>} />
+        <Route path='/players/:id/edit' element={<EditPlayer sports={ sports } onEditSubmit={ onEditSubmit }/>} />
       </Routes>
     </div>
   );
