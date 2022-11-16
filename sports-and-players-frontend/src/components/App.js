@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from './Home';
 import Sport from './Sport';
@@ -11,6 +11,8 @@ import EditSport from './EditSport';
 
 function App() {
   const [sports, setSports] = useState([]);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch("http://localhost:9292/sports")
@@ -46,6 +48,7 @@ function App() {
     })
     .then((r) => r.json())
     .then((data) => updatedSports(data))
+    .then(navigate('/sports'))
   }
 
   return (
@@ -55,9 +58,9 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/sports' element={<Sport sports={ sports } deleteSport={ deleteSport }/>} />
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
+        <Route path='/sports/:id/edit' element={<EditSport sports={ sports } onEditSubmit={ onEditSubmit }/>} />
         <Route path='/players' element={<Player/>} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
-        <Route path='/sports/:id/edit' element={<EditSport sports={ sports } onEditSubmit={ onEditSubmit }/>} />
       </Routes>
     </div>
   );
