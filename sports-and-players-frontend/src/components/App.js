@@ -23,6 +23,7 @@ function App() {
 
   function addSport(newSport) {
     setSports( [...sports, newSport ] )
+    navigate('/sports')
   }
 
   function deleteSport(clickedSport) {
