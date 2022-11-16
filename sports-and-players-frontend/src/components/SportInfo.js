@@ -8,11 +8,13 @@ function SportInfo({ sport, deleteSport }) {
         .then((r) => r.json())
         .then((data) => deleteSport(data))
     }
+
+    const numberOfPlayers = sport.players?.length > 0 ? sport.players.length : "None"
     return (
-        <div>
+        <div key={sport.id}>
             <h2>{sport.name}</h2>
             <div>
-                <p>Number of Athletes: { sport.players.length }</p>
+                <p>Athletes: { numberOfPlayers }</p>
             </div>
             <p><Link to={`/sports/${ sport.id }/edit`}>Edit Sport Name</Link></p>
             <button onClick={ handleDeleteClick }>Delete</button>

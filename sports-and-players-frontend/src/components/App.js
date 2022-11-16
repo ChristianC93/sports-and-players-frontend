@@ -16,9 +16,8 @@ function App() {
     fetch("http://localhost:9292/sports")
     .then((r) => r.json())
     .then((data) => setSports(data))
-  }, [sports])
+  }, [])
 
-  // console.log(sports)
 
   function addSport(newSport) {
     setSports( [...sports, newSport ] )
@@ -28,6 +27,14 @@ function App() {
     setSports( [...sports].filter((sport) => sport.id !== clickedSport.id))
   }
 
+  function updatedSports(editedSport) {
+    setSports([...sports].map((sport) => {
+      if (sport.id === editedSport.id) {
+        return editedSport
+      }
+      else return sport
+    }))
+  }
 
   function onEditSubmit(editedSport) {
     fetch(`http://localhost:9292/sports/${editedSport.id}`, {
@@ -38,7 +45,7 @@ function App() {
       body: JSON.stringify(editedSport) 
     })
     .then((r) => r.json())
-    .then((data) => console.log(data))
+    .then((data) => updatedSports(data))
   }
 
   return (

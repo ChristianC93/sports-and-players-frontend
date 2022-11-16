@@ -5,8 +5,8 @@ function PlayerForm( { sports }) {
     const [athlete, setAthlete] = useState({
         name:"",
         age:"",
-        sport_id:"",
-        active:""
+        sport_id: 6,
+        active: true
     })
 
     function handleChange(e) {
@@ -18,9 +18,28 @@ function PlayerForm( { sports }) {
         })
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch("http://localhost:9292/players", {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify(athlete)
+        })
+        .then((r) => r.json())
+        .then((data) => console.log(data))
+        .then(() => setAthlete({
+            name:"",
+            age:"",
+            sport_id: 6,
+            active: true
+        }))
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <label> Name:</label><br></br>
                 <input type="text" placeholder="name..." name="name" size="50" value={ athlete.name } onChange={ handleChange } ></input><br></br>
                 <label> Age:</label><br></br>

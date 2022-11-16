@@ -27,9 +27,9 @@ function SportForm({ addSport }) {
     return (
         <div>
             <h3>Add a Sport</h3>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ handleSubmit }>
                 <label> Name:</label><br></br>
-                <input type="text" placeholder="Name..." name="name" size="50" value={newSport.name} onChange={handleChange}></input><br></br>
+                <input type="text" placeholder="Name..." name="name" size="50" value={newSport.name} onChange={ handleChange }></input><br></br>
                 <input type="submit"></input>
             </form>
         </div>

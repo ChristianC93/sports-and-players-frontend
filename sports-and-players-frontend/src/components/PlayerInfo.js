@@ -1,18 +1,11 @@
-function PlayerInfo({ players }) {
-    const playerInfo = players.map(( player ) => {
-        return (
-            <div key={ player.name }>
-                <h4 key={ player.name }>{ player.name }</h4>
-                <p key={ player.age }>Age: { player.age }</p>
-                <p key={ player.active }>{ player.active ? "Active" : "Retired" }</p>
-            </div>
-        )
-    })
-
-
+function PlayerInfo({ athlete }) {
+    
     return (
-        <div>
-            {playerInfo}
+        <div key={ athlete.name }>
+            <h4>{ athlete.name }</h4>
+            <p>Age: { athlete.age }</p>
+            <p>Sport: {athlete.sport ? athlete.sport.name : "nill"} </p>
+            <p>{ athlete.active ? "Active" : "Retired" }</p>
         </div>
     )
 }
