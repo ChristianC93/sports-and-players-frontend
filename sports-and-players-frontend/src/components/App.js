@@ -55,7 +55,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/sports' element={<Sport sports={ sports } deleteSport={ deleteSport }/>} />
         <Route path='/sports/new' element={<SportForm addSport={ addSport }/>} />
-        <Route path='/players' element={<Player sports={ sports } />} />
+        <Route path='/players' element={<Player/>} />
         <Route path='/players/new' element={<PlayerForm sports={ sports }/>} />
         <Route path='/sports/:id/edit' element={<EditSport sports={ sports } onEditSubmit={ onEditSubmit }/>} />
       </Routes>

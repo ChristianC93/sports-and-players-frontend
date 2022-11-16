@@ -1,7 +1,7 @@
 import PlayerInfo from "./PlayerInfo";
 import { useEffect, useState } from 'react'
 
-function Player({ sports }) {
+function Player() {
     const [athletes, setAthletes] = useState([]);
 
     useEffect(() => {
